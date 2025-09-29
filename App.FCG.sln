@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.WebApi", "src\App.F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Authentication", "src\App.FCG.Authentication\App.FCG.Authentication.csproj", "{F836F177-86B4-43E8-87FA-FBD5CE970573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Service", "App.FCG.Service\App.FCG.Service.csproj", "{EA5D7E7D-B8F3-4921-A5B8-8DD980218534}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Service", "src\App.FCG.Service\App.FCG.Service.csproj", "{EA5D7E7D-B8F3-4921-A5B8-8DD980218534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Core", "App.FCG.Model\App.FCG.Core.csproj", "{995EF57F-DF27-4644-BA4A-09E5EDDD8227}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Core", "src\App.FCG.Core\App.FCG.Core.csproj", "{995EF57F-DF27-4644-BA4A-09E5EDDD8227}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Infra", "App.FCG.Infra\App.FCG.Infra.csproj", "{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Infra", "src\App.FCG.Infra\App.FCG.Infra.csproj", "{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
