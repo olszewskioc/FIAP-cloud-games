@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace App.FCG.WebApi.Controllers
+namespace App.FCG.WebApi.Controllers.v1
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

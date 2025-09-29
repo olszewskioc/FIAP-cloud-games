@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Core", "src\App.FCG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Infra", "src\App.FCG.Infra\App.FCG.Infra.csproj", "{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.FCG.Tests", "tests\App.FCG.Tests\App.FCG.Tests.csproj", "{3A3F4CF7-A370-4200-A494-3754036AEC7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0484B5D9-C197-4EF2-A8E5-E6348C3561B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3F4CF7-A370-4200-A494-3754036AEC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3F4CF7-A370-4200-A494-3754036AEC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3F4CF7-A370-4200-A494-3754036AEC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3F4CF7-A370-4200-A494-3754036AEC7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
