@@ -13,4 +13,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\v1\Auth\" />
+    <Folder Include="Controllers\v1\Games\" />
+  </ItemGroup>
+
 </Project>
