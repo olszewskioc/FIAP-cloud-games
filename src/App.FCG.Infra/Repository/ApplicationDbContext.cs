@@ -12,7 +12,7 @@ namespace App.FCG.Infra.Repository
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(configuration.GetConnectionString(""));
+			optionsBuilder.UseSqlServer(configuration.GetConnectionString("Core"));
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
