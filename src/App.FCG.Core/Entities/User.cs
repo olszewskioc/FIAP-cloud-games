@@ -1,7 +1,8 @@
 ﻿
 namespace App.FCG.Core.Entities
 {
-	public class User : EntityBase
+	public abstract class User : EntityBase
 	{
+		public string Name { get; set; }
 	}
 }
