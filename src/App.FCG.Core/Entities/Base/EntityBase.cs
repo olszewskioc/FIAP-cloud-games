@@ -1,5 +1,4 @@
-﻿
-namespace App.FCG.Core.Entities
+﻿namespace App.FCG.Core.Entities.Base
 {
 	public abstract class EntityBase
 	{
@@ -40,7 +39,7 @@ namespace App.FCG.Core.Entities
 
 		public override int GetHashCode()
 		{
-			return (GetType().GetHashCode() * 907) + Id.GetHashCode();
+			return GetType().GetHashCode() * 907 + Id.GetHashCode();
 		}
 	}
 }

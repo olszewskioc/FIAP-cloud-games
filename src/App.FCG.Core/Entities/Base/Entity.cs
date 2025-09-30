@@ -1,7 +1,7 @@
 ﻿using App.FCG.Core.Extensions;
 using App.FCG.Core.Interfaces;
 
-namespace App.FCG.Core.Entities
+namespace App.FCG.Core.Entities.Base
 {
 	public abstract class Entity : IEntity
 	{

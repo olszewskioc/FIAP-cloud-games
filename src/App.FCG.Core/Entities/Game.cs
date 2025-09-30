@@ -1,4 +1,6 @@
 ﻿
+using App.FCG.Core.Entities.Base;
+
 namespace App.FCG.Core.Entities
 {
 	public class Game : EntityBase
