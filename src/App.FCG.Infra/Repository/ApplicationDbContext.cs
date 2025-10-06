@@ -1,6 +1,6 @@
-﻿using App.FCG.Core.Entities;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using App.FCG.Core.Entities;
 
 namespace App.FCG.Infra.Repository
 {
