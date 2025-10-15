@@ -1,4 +1,4 @@
-namespace App.FCG.Tests
+namespace FCG.Tests
 {
 	public class UnitTest1
 	{

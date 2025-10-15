@@ -1,11 +1,12 @@
-﻿using App.FCG.Core.Extensions;
-using App.FCG.Core.Interfaces;
+﻿using FluentValidation.Results;
 
-namespace App.FCG.Core.Entities.Base
+namespace FCG.Core.Entities.Base
 {
-	public abstract class Entity : IEntity
+	public abstract class Entity
 	{
-		public Guid Id { get; protected set; }
+        public ValidationResult ValidationResult { get; set; }
+
+        public Guid Id { get; protected set; }
 		public DateTime CreatedAt { get; protected set; }
 		public DateTime? UpdatedAt { get; protected set; }
 
@@ -15,16 +16,47 @@ namespace App.FCG.Core.Entities.Base
 			CreatedAt = DateTime.UtcNow;
 		}
 
-		public override bool Equals(object? obj) => this.EntityEquals(obj);
-		public override int GetHashCode() => this.EntityGetHashCode();
+        public virtual bool EhValido()
+        {
+            throw new NotImplementedException();
+        }
 
-		public static bool operator ==(Entity? a, Entity? b)
-		{
-			if (a is null && b is null) return true;
-			if (a is null || b is null) return false;
-			return a.Equals(b);
-		}
+        #region Comparações
+        public override bool Equals(object obj)
+        {
+            var compareTo = obj as Entity;
 
-		public static bool operator !=(Entity? a, Entity? b) => !(a == b);
-	}
+            if (ReferenceEquals(this, compareTo)) return true;
+            if (ReferenceEquals(null, compareTo)) return false;
+
+            return Id.Equals(compareTo.Id);
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} [Id={Id}]";
+        }
+
+        public static bool operator ==(Entity a, Entity b)
+        {
+            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+                return true;
+
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+                return false;
+
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Entity a, Entity b)
+        {
+            return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return GetType().GetHashCode() * 907 + Id.GetHashCode();
+        }
+        #endregion
+    }
 }

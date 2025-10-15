@@ -1,16 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using App.FCG.Core.Entities;
 
-namespace App.FCG.Infra.Repository
+namespace FCG.Infra.Repository
 {
 	public class ApplicationDbContext : DbContext
 	{
 		private readonly IConfiguration _configuration;
 
-		public DbSet<Game> Game { get; set; }
-		public DbSet<Admin> Admin { get; set; }
-		public DbSet<Client> Client { get; set; }
+		//public DbSet<Game> Game { get; set; }
 
 		public ApplicationDbContext()
 		{
