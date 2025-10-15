@@ -23,13 +23,21 @@ namespace FCG.Games.Models
                     .NotEqual(Guid.Empty)
                     .WithMessage("Invalid id");
 
-                RuleFor(c => c.Description);
+                RuleFor(c => c.Description)
+                    .MaximumLength(500)
+                    .NotEmpty().NotNull()
+                    .WithMessage("Max Length is 500")
+                    .MinimumLength(10);
 
-                RuleFor(c => c.PublisherName);
+                RuleFor(c => c.PublisherName)
+                    .MaximumLength(100)
+                    .MinimumLength(5);
 
                 RuleFor(c => c.ReleaseDate);
 
-                RuleFor(c => c.Price);
+                RuleFor(c => c.Price)
+                    .GreaterThan(0)
+                    .WithMessage("Max Length is 500");
             }
 
             protected static bool TerCpfValido(Cpf cpf)
