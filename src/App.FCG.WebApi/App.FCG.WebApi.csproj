@@ -38,6 +38,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\App.FCG.Authentication\FCG.Authentication.csproj" />
 		<ProjectReference Include="..\App.FCG.Core\FCG.Core.csproj" />
+		<ProjectReference Include="..\FCG.Games\FCG.Games.csproj" />
 		<ProjectReference Include="..\FGC.Clientes\FCG.Clients.csproj" />
 	</ItemGroup>
 
