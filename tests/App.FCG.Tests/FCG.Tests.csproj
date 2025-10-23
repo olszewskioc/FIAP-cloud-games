@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\App.FCG.Core\FCG.Core.csproj" />
     <ProjectReference Include="..\..\src\App.FCG.WebApi\App.FCG.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\FGC.Clientes\FCG.Clients.csproj" />
     <ProjectReference Include="..\..\src\FGC.Shared\FCG.Shared.csproj" />
   </ItemGroup>
 
