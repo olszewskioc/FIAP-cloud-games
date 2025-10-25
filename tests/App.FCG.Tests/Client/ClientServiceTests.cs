@@ -1,5 +1,6 @@
-﻿using FCG.Clients.Data.Repository;      // TODO: confirme namespace
-using FCG.Clients.Models;               // TODO
+﻿using Repo = FCG.Clients.Data.Repository;
+using FCG.Clients.Models;
+using ClientEntity = FCG.Clients.Models.Client;
 using FCG.Clients.Services;             // TODO
 using FCG.Core.Data;                    // IUnitOfWork
 using FCG.Shared.Dtos;
@@ -15,11 +16,11 @@ public class ClientService_Tests
     public async Task Insert_Should_Insert_And_Commit()
     {
         // Arrange
-        var repo = new Mock<IClientRepository>();
+        var repo = new Mock<Repo.IClientRepository>();
         var uow = new Mock<IUnitOfWork>();
 
         repo.SetupGet(r => r.UnitOfWork).Returns(uow.Object);
-        repo.Setup(r => r.GetByCpf("11122233344")).ReturnsAsync((Client?)null);
+        repo.Setup(r => r.GetByCpf("98765432100")).ReturnsAsync((ClientEntity?)null);
         uow.Setup(u => u.Commit()).ReturnsAsync(true);
 
         var service = new ClientService(repo.Object);
@@ -27,7 +28,7 @@ public class ClientService_Tests
         var dto = new ClienteRegistro(Guid.NewGuid(), new UsuarioRegistro
         {
             Nome = "Alice",
-            Cpf = "11122233344",
+            Cpf = "98765432100",
             Email = "alice@mail.com",
             Senha = "Abc!12345",
             SenhaConfirmacao = "Abc!12345"
@@ -38,26 +39,26 @@ public class ClientService_Tests
 
         // Assert
         result.IsValid.Should().BeTrue();
-        repo.Verify(r => r.Insert(It.Is<Client>(c => c.Nome == "Alice" && c.Cpf.Numero == "11122233344")), Times.Once);
+        repo.Verify(r => r.Insert(It.Is<ClientEntity>(c => c.Nome == "Alice" && c.Cpf.Numero == "98765432100")), Times.Once);
         uow.Verify(u => u.Commit(), Times.Once);
     }
 
     [Fact(DisplayName = "ClientService.Insert: should not insert nor commit when CPF already exists")]
     public async Task Insert_Should_Fail_When_Cpf_Exists()
     {
-        var repo = new Mock<IClientRepository>();
+        var repo = new Mock<Repo.IClientRepository>();
         var uow = new Mock<IUnitOfWork>();
 
         repo.SetupGet(r => r.UnitOfWork).Returns(uow.Object);
-        repo.Setup(r => r.GetByCpf("11122233344"))
-            .ReturnsAsync(new Client(Guid.NewGuid(), "João", "joao@mail.com", "11122233344"));
+        repo.Setup(r => r.GetByCpf("98765432100"))
+            .ReturnsAsync(new ClientEntity(Guid.NewGuid(), "João", "joao@mail.com", "98765432100"));
 
         var service = new ClientService(repo.Object);
 
         var dto = new ClienteRegistro(Guid.NewGuid(), new UsuarioRegistro
         {
             Nome = "Alice",
-            Cpf = "11122233344",
+            Cpf = "98765432100",
             Email = "alice@mail.com",
             Senha = "Abc!12345",
             SenhaConfirmacao = "Abc!12345"
@@ -67,7 +68,7 @@ public class ClientService_Tests
 
         result.IsValid.Should().BeFalse();
         result.Errors.Should().Contain(e => e.ErrorMessage == "Já existe um cliente com este CPF");
-        repo.Verify(r => r.Insert(It.IsAny<Client>()), Times.Never);
+        repo.Verify(r => r.Insert(It.IsAny<ClientEntity>()), Times.Never);
         uow.Verify(u => u.Commit(), Times.Never);
     }
 }
